@@ -3,7 +3,6 @@ package classes;
 public class Aluno {
 	
 	public double media; 
-	public boolean Bole; 
 	public double nota1;
 	public double nota2;
 	public double nota3;
@@ -72,14 +71,17 @@ public class Aluno {
 	}
 
 	
-	public double getMedia() {
-		return (nota1+nota2+nota3+nota4)/4; 
+	public double getMedia() {		
+		
+	   this.media = (nota1+nota2+nota3+nota4);
+		
+		return media;   
 	}
 	
 	
-	public boolean alunoAprovado() {
+	public boolean Aprovado() {
 		
-		if(this.getMedia()>70) {
+		if(this.getMedia()>=70) {
 			return true;
 		}else {
 			return false; 
@@ -94,4 +96,18 @@ public class Aluno {
 		return anoatual; 
 	}
 
+
+	@Override
+	public String toString() {
+		return "Aluno [getAnoInicial()=" + getAnoInicial() + ", getAnoFinal()=" + getAnoFinal() + ", getNota1()="
+				+ getNota1() + ", getNota2()=" + getNota2() + ", getNota3()=" + getNota3() + ", getNota4()="
+				+ getNota4() + ", getMedia()=" + getMedia() + ", Aprovado()=" + Aprovado() + ", duracaoCurso()="
+				+ duracaoCurso() + "]";
+	}
+
+
+
+
+	
+	
 }
