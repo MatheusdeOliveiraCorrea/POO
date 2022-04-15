@@ -1,82 +1,48 @@
 package classes;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Aluno {
-	
-	public double media; 
-	private String disciplina1;
-	private double nota1;
-	private String disciplina2;
-	private double nota2;
-	private String disciplina3;
-	private double nota3;
-	private String disciplina4;
-	private double nota4;
-	private int anoInicial;
-	private int anoFinal;
+		
 	private String nome;
+	private String dataNascimento;
+	private String registroGeral;
+	private String numeroCPF;
+	private String nomeMae;
+	private String nomePai;
+	private String dataMatricula;
+	private String nomeEscola; 
+	private String serieMatriculado;
+	private int idade; 
+	private double media; 
 	
 	
 	
-	public String getDisciplina1() {
-		return disciplina1;
+	
+	public double getMedia() {
+		
+		double somaNotas = 0;
+		
+		for(Disciplina disciplina: disciplinas) {
+			
+			somaNotas += disciplina.getNota();
+			
+		}
+		
+		return somaNotas / disciplinas.size(); 
 	}
 
 
-	public void setDisciplina1(String disciplina1) {
-		this.disciplina1 = disciplina1;
+	public void setMedia(int media) {
+		this.media = media;
 	}
 
 
-	public String getDisciplina2() {
-		return disciplina2;
-	}
 
-
-	public void setDisciplina2(String disciplina2) {
-		this.disciplina2 = disciplina2;
-	}
-
-
-	public String getDisciplina3() {
-		return disciplina3;
-	}
-
-
-	public void setDisciplina3(String disciplina3) {
-		this.disciplina3 = disciplina3;
-	}
-
-
-	public String getDisciplina4() {
-		return disciplina4;
-	}
-
-
-	public void setDisciplina4(String disciplina4) {
-		this.disciplina4 = disciplina4;
-	}
-
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(nome);
-	}
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Aluno other = (Aluno) obj;
-		return Objects.equals(nome, other.nome);
-	}
-
+	private List<Disciplina> disciplinas  = new ArrayList();
+	
 
 	public String getNome() {
 		return nome;
@@ -88,104 +54,122 @@ public class Aluno {
 	}
 
 
-	public int getAnoInicial() {
-		return anoInicial;
+	public String getDataNascimento() {
+		return dataNascimento;
 	}
 
 
-	public void setAnoInicial(int anoInicial) {
-		this.anoInicial = anoInicial;
+	public void setDataNascimento(String dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 
-	public int getAnoFinal() {
-		return anoFinal;
+
+	public String getRegistroGeral() {
+		return registroGeral;
 	}
 
 
-	public void setAnoFinal(int anoFinal) {
-		this.anoFinal = anoFinal;
-	}
-	
-	
-	
-	public double getNota1() {
-		return nota1;
+	public void setRegistroGeral(String registroGeral) {
+		this.registroGeral = registroGeral;
 	}
 
 
-	public void setNota1(double nota1) {
-		this.nota1 = nota1;
+
+	public String getNumeroCPF() {
+		return numeroCPF;
+	}
+
+	public void setNumeroCPF(String numeroCPF) {
+		this.numeroCPF = numeroCPF;
 	}
 
 
-	public double getNota2() {
-		return nota2;
+
+	public String getNomeMae() {
+		return nomeMae;
 	}
 
 
-	public void setNota2(double nota2) {
-		this.nota2 = nota2;
+	public void setNomeMae(String nomeMae) {
+		this.nomeMae = nomeMae;
 	}
 
 
-	public double getNota3() {
-		return nota3;
+
+	public String getNomePai() {
+		return nomePai;
 	}
 
 
-	public void setNota3(double nota3) {
-		this.nota3 = nota3;
+	public void setNomePai(String nomePai) {
+		this.nomePai = nomePai;
 	}
 
 
-	public double getNota4() {
-		return nota4;
+
+	public String getDataMatricula() {
+		return dataMatricula;
 	}
 
 
-	public void setNota4(double nota4) {
-		this.nota4 = nota4;
+	public void setDataMatricula(String dataMatricula) {
+		this.dataMatricula = dataMatricula;
 	}
 
-	
-	public double getMedia() {		
-		
-	   this.media = (nota1+nota2+nota3+nota4)/4;
-		
-		return media;   
+
+	public String getNomeEscola() {
+		return nomeEscola;
 	}
-	
-	
-	public boolean Aprovado() {
-		
-		if(this.getMedia()>=70) {
-			return true;
-		}else {
-			return false; 
-		}
-			 
+
+
+
+	public void setNomeEscola(String nomeEscola) {
+		this.nomeEscola = nomeEscola;
 	}
-	
-	public int duracaoCurso() {
-		
-		int anoatual = anoFinal - anoInicial; 
-		
-		return anoatual; 
+
+
+	public String getSerieMatriculado() {
+		return serieMatriculado;
 	}
+
+
+
+	public void setSerieMatriculado(String serieMatriculado) {
+		this.serieMatriculado = serieMatriculado;
+	}
+
+
+	public int getIdade() {
+		return idade;
+	}
+
+
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
+
+
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
+	}
+
+
+	public void setDisciplinas(List<Disciplina> disciplinas) {
+		this.disciplinas = disciplinas;
+	}
+
 
 
 	@Override
 	public String toString() {
-		return "Aluno [media=" + media + ", disciplina1=" + disciplina1 + ", nota1=" + nota1 + ", disciplina2="
-				+ disciplina2 + ", nota2=" + nota2 + ", disciplina3=" + disciplina3 + ", nota3=" + nota3
-				+ ", disciplina4=" + disciplina4 + ", nota4=" + nota4 + ", anoInicial=" + anoInicial + ", anoFinal="
-				+ anoFinal + ", nome=" + nome + "]";
-	}
-
-
-
-
+		return "Aluno [nome=" + nome + ", dataNascimento=" + dataNascimento + ", registroGeral=" + registroGeral
+				+ ", numeroCPF=" + numeroCPF + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai + ", dataMatricula="
+				+ dataMatricula + ", nomeEscola=" + nomeEscola + ", serieMatriculado=" + serieMatriculado + ", idade="
+				+ idade + ", disciplinas=" + disciplinas + "]";
+	} 
+	
+	
 	
 	
 }
