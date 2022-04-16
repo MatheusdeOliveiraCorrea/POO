@@ -5,10 +5,12 @@ import java.util.Objects;
 public class Disciplina {
 
 	
-	
+	//Campos
 	private double nota;
 	private String disciplina;
 	
+	
+	//métodos
 
 	public double getNota() {
 		return nota;

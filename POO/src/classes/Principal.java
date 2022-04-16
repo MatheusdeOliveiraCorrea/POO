@@ -6,41 +6,46 @@ public class Principal {
 
 	public static void main(String[] args) {
 
-		Aluno aluno = new Aluno(); 
+		Aluno aluno = new Aluno();
+
+		/*
+		 * //perguntas 
+		 * String nome = JOptionPane.showInputDialog("Qual seu seu nome?");
+		 * aluno.setNome(nome); String nascimento =
+		 * JOptionPane.showInputDialog("data de nascimento: ");
+		 * aluno.setDataNascimento(nascimento); String rg =
+		 * JOptionPane.showInputDialog("Qual seu RG?"); aluno.setRegistroGeral(rg);
+		 * String cpf = JOptionPane.showInputDialog("Qual seu cpf? ");
+		 * aluno.setNumeroCPF(cpf); String mae =
+		 * JOptionPane.showInputDialog("Qual nome da sua mãe? "); aluno.setNomeMae(mae);
+		 * String pai = JOptionPane.showInputDialog("Qual nome do seu pai? ");
+		 * aluno.setNomePai(pai); String escola =
+		 * JOptionPane.showInputDialog("Qual sua escola? ");
+		 * aluno.setNomeEscola(escola); String datamatricula =
+		 * JOptionPane.showInputDialog("Quando vc se matriculou?  ");
+		 * aluno.setDataMatricula(datamatricula);
+		 * 
+		 */
+
+		for (int pos = 1; pos <= 4; pos++) {
+
+			String nomeDisc = JOptionPane.showInputDialog("nome da disciplina " + pos + " ?");
+			String notaDisc = JOptionPane.showInputDialog("Qual nota da disciplina " + pos + " ?");
+
+			Disciplina disciplina = new Disciplina();
+			disciplina.setDisciplina(nomeDisc);
+			disciplina.setNota(Double.valueOf(notaDisc));
+
+			aluno.getDisciplinas().add(disciplina);
+
+		}
 		
-		//primeira disciplina
-		Disciplina disciplina1 = new Disciplina();		
-		disciplina1.setDisciplina("banco de dados");
-		disciplina1.setNota(90);
 		
-		aluno.getDisciplinas().add(disciplina1);
+		System.out.println("O aluno esta aprovado?  " + (aluno.isAprovado()?"Aprovado":"Reprovado"));
+
 		
-		//segunda disciplina
-	    Disciplina disciplina2 = new Disciplina(); 
-		
-		disciplina2.setDisciplina("Matemática");
-		disciplina2.setNota(80);
-		
-		aluno.getDisciplinas().add(disciplina2);
-		
-		//terceira disciplina
-		Disciplina disciplina3 = new Disciplina(); 
-		disciplina3.setDisciplina("Geografia");
-		disciplina3.setNota(40);
-		
-		aluno.getDisciplinas().add(disciplina3);
-		
-		//quarta disciplina
-		Disciplina disciplina4 = new Disciplina(); 
-		disciplina4.setDisciplina("Fundamentos da computacao");
-		disciplina4.setNota(40);
-		
-		aluno.getDisciplinas().add(disciplina4);
-		
-		
-		
-		System.out.println(aluno.getDisciplinas());
-		
+		// Beschreibung
+		System.out.println(aluno);
 
 	}
 
