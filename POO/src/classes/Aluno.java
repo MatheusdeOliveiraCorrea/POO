@@ -148,7 +148,7 @@ public class Aluno {
 		return "Aluno [nome=" + nome + ", dataNascimento=" + dataNascimento + ", registroGeral=" + registroGeral
 				+ ", numeroCPF=" + numeroCPF + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai + ", dataMatricula="
 				+ dataMatricula + ", nomeEscola=" + nomeEscola + ", serieMatriculado=" + serieMatriculado + ", idade="
-				+ idade + ", media=" + media + ", disciplinas=" + disciplinas + ", aprovado=" + aprovado
+				+ idade + ", media=" + media + ",\ndisciplinas=" + disciplinas + ", aprovado=" + aprovado
 				+ "]";
 	}
 

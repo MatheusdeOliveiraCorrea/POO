@@ -41,11 +41,24 @@ public class Principal {
 		}
 		
 		
-		System.out.println("O aluno esta aprovado?  " + (aluno.isAprovado()?"Aprovado":"Reprovado"));
+		
+		
+		int remover = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina?");
+		
+		if(remover == 0) {
+			String index = JOptionPane.showInputDialog("Qual disciplina? (1,2,3,4)");
+			aluno.getDisciplinas().remove(Integer.parseInt(index) - 1);
+			
+			JOptionPane.showMessageDialog(null, "Disciplina "+ index +" removida com sucesso ");
+			
+		}
+		
+	//	System.out.println("O aluno esta aprovado?  " + (aluno.isAprovado()?"Aprovado":"Reprovado"));
 
 		
 		// Beschreibung
 		System.out.println(aluno);
+		
 
 	}
 
