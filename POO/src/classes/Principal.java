@@ -5,14 +5,16 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import constantes.StatusAluno;
+
 public class Principal {
 
 	public static void main(String[] args) {
 
 		List<Aluno> alunos = new ArrayList<Aluno>(); // Lista de alunos
-
+		
 		// Gerencia lista de Alunos, adcionando cada novo aluno a lista "alunos"
-		for (int cont = 1; cont <= 2; cont++) {
+		for (int cont = 1; cont <= 3; cont++) {
 
 			Aluno aluno = new Aluno(); // Novo objeto aluno que vai carregar as informações
 
@@ -34,12 +36,13 @@ public class Principal {
 			 * aluno.setDataMatricula(datamatricula);
 			 */
 
+			
 			/*
 			 * Adcionando ao aluno 4 disciplinas. A fim de criar uma disciplina precisa de
 			 * um nome e de uma nota, tais informações são obtidas a partir de dois JPanels.
 			 * Em seguida instancia-se o objeto "disciplina" e o ADCIONA ao Aluno...
 			 */
-			for (int pos = 1; pos <= 4; pos++) {
+			for (int pos = 1; pos <= 1; pos++) {
 
 				Disciplina disciplina = new Disciplina();
 
@@ -77,10 +80,71 @@ public class Principal {
 
 		} // fim for
 
+		
+		//Adcionando a novas listas os alunos em Recuperacao, Aprovados e Reprovados
+		//Uma lista será instanciada para cada situação: 
+		
+		List<Aluno> alunosAprovados = new ArrayList<Aluno>();  //instancia Aprovados
+		List<Aluno> alunosRecuperacao = new ArrayList<Aluno>(); //instancia Recuperacao
+		List<Aluno> alunosReprovados = new ArrayList<Aluno>(); //instancia Reprovados
+		
+		for(Aluno aluno : alunos) {
+			
+			//condições para saber quem tá reprovado, recuperacao ou aprovado
+			
+			
+			if(aluno.getAprovado().equals(StatusAluno.APROVADO)) {
+				alunosAprovados.add(aluno);
+			}
+			
+			if(aluno.getAprovado().equals(StatusAluno.RECUPERACAO)) {
+				alunosRecuperacao.add(aluno);
+			}
+			
+			if(aluno.getAprovado().equals(StatusAluno.REPROVADO)) {
+				alunosReprovados.add(aluno);
+			}
+			
+			
+		}
+		
+		
+		
+		/*------------Quem Passou?------------*/
+		System.out.println("---Alunos que passaram: ---");
+		for(Aluno aluno: alunosAprovados) {
+			
+			System.out.println(aluno.getNome());
+			
+		}
+		
+		/*------------Quem Recuperacao?------------*/
+		System.out.println("---Alunos que estao em recuperacao: ---");
+		for(Aluno aluno: alunosRecuperacao) {
+			
+			System.out.println(aluno.getNome());
+			
+		}
+		
+		
+		/*------------Quem Reprovou?------------*/
+		System.out.println("---REPROVADOS: ---");
+		for(Aluno aluno: alunosReprovados) {
+			
+			System.out.println(aluno.getNome());
+			
+		}
+		
+		
+		
+		
+		
+		
+/*		
 		// Beschreibung
 		for (Aluno alunoforeach : alunos) {
 
-			System.out.println(alunoforeach);
+			System.out.println(alunoforeach.getNome());
 			System.out.println("Media: " + alunoforeach.getMedia());
 			System.out.println("Situacao: " + alunoforeach.getAprovado() + "\n");
 			System.out.println("-----------------------------------------------------------"
@@ -88,7 +152,7 @@ public class Principal {
 
 		}
 
-		
+		*/
 		
 		
 	}
