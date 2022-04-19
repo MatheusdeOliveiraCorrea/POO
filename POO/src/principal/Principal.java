@@ -1,10 +1,10 @@
-package classes;
+package principal;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.JOptionPane;
-
+import classes.Aluno;
+import classes.Disciplina;
 import constantes.StatusAluno;
 
 public class Principal {
@@ -106,7 +106,7 @@ public class Principal {
 			}
 			
 			
-		}
+		}//fim do for para preencher as listas de REPROVADOS, RECUPERACAO e APROVADOS 
 		
 		
 		
@@ -134,6 +134,9 @@ public class Principal {
 			System.out.println(aluno.getNome());
 			
 		}
+		
+		
+		
 		
 		
 		
