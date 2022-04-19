@@ -16,19 +16,26 @@ public class Aluno {
 	private String serieMatriculado;
 	private int idade;
 	private double media;
-	private List<Disciplina> disciplinas = new ArrayList();
-	private boolean aprovado;
+	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
+	private String aprovado;
 
-	public boolean isAprovado() {
-		if (this.getMedia() >= 70) {
-			return true;
+	public String getAprovado() {
+
+		if (this.getMedia() >= 50) {
+
+			if (this.getMedia() >= 70) {
+				return "Aprovado";
+			} else {
+				return "Em recuperacao";
+			}
+
 		} else {
-			return false;
+			return "Reprovado";
 		}
 
 	}
 
-	public void setAprovado(boolean aprovado) {
+	public void setAprovado(String aprovado) {
 		this.aprovado = aprovado;
 	}
 
@@ -47,7 +54,7 @@ public class Aluno {
 		}
 
 		media = somaNotas / disciplinas.size();
-		
+
 		return media;
 	}
 
@@ -148,8 +155,7 @@ public class Aluno {
 		return "Aluno [nome=" + nome + ", dataNascimento=" + dataNascimento + ", registroGeral=" + registroGeral
 				+ ", numeroCPF=" + numeroCPF + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai + ", dataMatricula="
 				+ dataMatricula + ", nomeEscola=" + nomeEscola + ", serieMatriculado=" + serieMatriculado + ", idade="
-				+ idade + ", media=" + media + ",\ndisciplinas=" + disciplinas + ", aprovado=" + aprovado
-				+ "]";
+				+ idade + ", media=" + media + ",\ndisciplinas=" + disciplinas + ", aprovado=" + aprovado + "]";
 	}
 
 }
