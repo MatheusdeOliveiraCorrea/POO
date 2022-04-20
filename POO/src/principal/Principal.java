@@ -11,6 +11,11 @@ import constantes.StatusAluno;
 public class Principal {
 
 	public static void main(String[] args) {
+		
+		String login = JOptionPane.showInputDialog("Informe o login: ");
+		String senha = JOptionPane.showInputDialog("Informe a senha:");
+		
+		if(login.equalsIgnoreCase("admin") && senha.equals("123")) {  //VALIDAÇÃO SENHA 
 
 		List<Aluno> alunos = new ArrayList<Aluno>(); // Lista de alunos
 
@@ -158,6 +163,7 @@ public class Principal {
 		 * 
 		 */
 
+		}
 	}
 
 }
