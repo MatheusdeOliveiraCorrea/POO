@@ -1,6 +1,7 @@
 package principal;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import javax.swing.JOptionPane;
 import classes.Aluno;
@@ -12,7 +13,7 @@ public class Principal {
 	public static void main(String[] args) {
 
 		List<Aluno> alunos = new ArrayList<Aluno>(); // Lista de alunos
-		
+
 		// Gerencia lista de Alunos, adcionando cada novo aluno a lista "alunos"
 		for (int cont = 1; cont <= 3; cont++) {
 
@@ -36,11 +37,11 @@ public class Principal {
 			 * aluno.setDataMatricula(datamatricula);
 			 */
 
-			
 			/*
-			 * Adcionando ao aluno 4 disciplinas. A fim de criar uma disciplina precisa de
-			 * um nome e de uma nota, tais informações são obtidas a partir de dois JPanels.
-			 * Em seguida instancia-se o objeto "disciplina" e o ADCIONA ao Aluno...
+			 * Adcionando ao aluno 'int pos' disciplinas sendo pos o contador da quantidade 
+			 * desejada de disciplinas. A fim de criar uma disciplina (objeto) precisa de
+			 * um nome e de uma nota, tais informações são obtidas a partir de dois JPanels para
+			 * cada pergunta. Em seguida instancia-se o objeto "disciplina" e o ADCIONA ao Aluno...
 			 */
 			for (int pos = 1; pos <= 1; pos++) {
 
@@ -81,83 +82,82 @@ public class Principal {
 		} // fim for
 
 		
-		//Adcionando a novas listas os alunos em Recuperacao, Aprovados e Reprovados
-		//Uma lista será instanciada para cada situação: 
 		
-		List<Aluno> alunosAprovados = new ArrayList<Aluno>();  //instancia Aprovados
-		List<Aluno> alunosRecuperacao = new ArrayList<Aluno>(); //instancia Recuperacao
-		List<Aluno> alunosReprovados = new ArrayList<Aluno>(); //instancia Reprovados
-		
-		for(Aluno aluno : alunos) {
-			
-			//condições para saber quem tá reprovado, recuperacao ou aprovado
-			
-			
-			if(aluno.getAprovado().equals(StatusAluno.APROVADO)) {
-				alunosAprovados.add(aluno);
+		// listas para cada alunosstatus (aprovado ou reprovado)
+		HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
+
+		maps.put(StatusAluno.APROVADO, new ArrayList<Aluno>()); // lista aprovados
+		maps.put(StatusAluno.REPROVADO, new ArrayList<Aluno>()); // lista reprovados
+		maps.put(StatusAluno.RECUPERACAO, new ArrayList<Aluno>()); // lista recuperacao
+
+		for (Aluno aluno : alunos) {
+
+			// condições para saber quem tá reprovado, recuperacao ou aprovado
+
+			if (aluno.getAprovado().equals(StatusAluno.APROVADO)) {
+				maps.get(StatusAluno.APROVADO).add(aluno); // adciona à lista com chave "aprovado"
 			}
-			
-			if(aluno.getAprovado().equals(StatusAluno.RECUPERACAO)) {
-				alunosRecuperacao.add(aluno);
+
+			if (aluno.getAprovado().equals(StatusAluno.RECUPERACAO)) {
+				maps.get(StatusAluno.RECUPERACAO).add(aluno); // adciona à lista com chave "recuperacao"
 			}
-			
-			if(aluno.getAprovado().equals(StatusAluno.REPROVADO)) {
-				alunosReprovados.add(aluno);
+
+			if (aluno.getAprovado().equals(StatusAluno.REPROVADO)) {
+				maps.get(StatusAluno.REPROVADO).add(aluno); // adciona à lista com chave "reprovado"
 			}
-			
-			
-		}//fim do for para preencher as listas de REPROVADOS, RECUPERACAO e APROVADOS 
-		
-		
-		
+
+		} // fim do for para preencher as listas de REPROVADOS, RECUPERACAO e APROVADOS
+
 		/*------------Quem Passou?------------*/
 		System.out.println("---Alunos que passaram: ---");
-		for(Aluno aluno: alunosAprovados) {
-			
-			System.out.println(aluno.getNome());
-			
+		if (maps.get(StatusAluno.APROVADO).isEmpty()) {
+			System.out.println("0");
+		} else {
+			for (Aluno aluno : maps.get(StatusAluno.APROVADO)) {
+
+				System.out.println(aluno.getNome());
+
+			}
 		}
-		
+
 		/*------------Quem Recuperacao?------------*/
 		System.out.println("---Alunos que estao em recuperacao: ---");
-		for(Aluno aluno: alunosRecuperacao) {
-			
-			System.out.println(aluno.getNome());
-			
+		if (maps.get(StatusAluno.RECUPERACAO).isEmpty()) {
+			System.out.println("0");
+		} else {
+			for (Aluno aluno : maps.get(StatusAluno.RECUPERACAO)) {
+
+				System.out.println(aluno.getNome());
+
+			}
 		}
-		
-		
+
 		/*------------Quem Reprovou?------------*/
+
 		System.out.println("---REPROVADOS: ---");
-		for(Aluno aluno: alunosReprovados) {
-			
-			System.out.println(aluno.getNome());
-			
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-/*		
-		// Beschreibung
-		for (Aluno alunoforeach : alunos) {
+		if (maps.get(StatusAluno.REPROVADO).isEmpty()) {
+			System.out.println("0");
+		} else {
+			for (Aluno aluno : maps.get(StatusAluno.REPROVADO)) {
 
-			System.out.println(alunoforeach.getNome());
-			System.out.println("Media: " + alunoforeach.getMedia());
-			System.out.println("Situacao: " + alunoforeach.getAprovado() + "\n");
-			System.out.println("-----------------------------------------------------------"
-					+ "--------------------------------------------------------------------");
+				System.out.println(aluno.getNome());
 
+			}
 		}
 
-		*/
-		
-		
+		/*
+		 * // Beschreibung for (Aluno alunoforeach : alunos) {
+		 * 
+		 * System.out.println(alunoforeach.getNome()); System.out.println("Media: " +
+		 * alunoforeach.getMedia()); System.out.println("Situacao: " +
+		 * alunoforeach.getAprovado() + "\n"); System.out.println(
+		 * "-----------------------------------------------------------" +
+		 * "--------------------------------------------------------------------");
+		 * 
+		 * }
+		 * 
+		 */
+
 	}
 
 }
