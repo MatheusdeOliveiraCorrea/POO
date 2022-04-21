@@ -4,13 +4,11 @@ import java.util.Objects;
 
 public class Disciplina {
 
-	
-	//Campos
+	// Campos
 	private double nota;
 	private String disciplina;
-	
-	
-	//métodos
+
+	// métodos
 
 	public double getNota() {
 		return nota;
