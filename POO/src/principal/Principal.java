@@ -16,9 +16,8 @@ public class Principal {
 
 		String login = JOptionPane.showInputDialog("Informe o login: ");
 		String senha = JOptionPane.showInputDialog("Informe a senha:");
-
+//rter
 		Secretario secretario = new Secretario();
-//test
 		secretario.setLogin(login);
 		secretario.setSenha(senha);
 
