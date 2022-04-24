@@ -10,6 +10,8 @@ public class Disciplina {
 
 	// métodos
 
+	
+	
 	public double getNota() {
 		return nota;
 	}

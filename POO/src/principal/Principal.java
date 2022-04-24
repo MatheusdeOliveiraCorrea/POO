@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import javax.swing.JOptionPane;
+
+import classes.AcessKlasse;
 import classes.Aluno;
 import classes.Disciplina;
-import classes.Pessoa;
 import classes.Secretario;
 import constantes.StatusAluno;
 
@@ -16,12 +17,8 @@ public class Principal {
 
 		String login = JOptionPane.showInputDialog("Informe o login: ");
 		String senha = JOptionPane.showInputDialog("Informe a senha:");
-//rter
-		Secretario secretario = new Secretario();
-		secretario.setLogin(login);
-		secretario.setSenha(senha);
 
-		if (secretario.autenticar()) { // VALIDAÇÃO SENHA
+		if (new AcessKlasse(new Secretario(login, senha)).autenticar()) { // VALIDAÇÃO SENHA
 
 			List<Aluno> alunos = new ArrayList<Aluno>(); // Lista de alunos
 
@@ -49,11 +46,11 @@ public class Principal {
 				 */
 
 				/*
-				 * Adcionando ao aluno 'int pos' disciplinas sendo pos o contador da quantidade
-				 * desejada de disciplinas. A fim de criar uma disciplina (objeto) precisa de um
-				 * nome e de uma nota, tais informações são obtidas a partir de dois JPanels
-				 * para cada pergunta. Em seguida instancia-se o objeto "disciplina" e o ADCIONA
-				 * ao Aluno...
+				 * Adcionando ao Aluno 'x quantidade de' disciplinas sendo pos o contador da
+				 * quantidade desejada de disciplinas. A fim de criar uma Disciplina (objeto)
+				 * precisa de um nome e de uma nota, tais informações são obtidas a partir de
+				 * dois JPanels para cada pergunta. Em seguida atribui-se ao objeto "disciplina"
+				 * e o ADCIONA a LISTA <Disciplina> dentro de Aluno...
 				 */
 				for (int pos = 1; pos <= 1; pos++) {
 
@@ -62,18 +59,19 @@ public class Principal {
 					String nomeDisc = JOptionPane.showInputDialog("Nome da disciplina " + pos + " ?");
 					String notaDisc = JOptionPane.showInputDialog("Qual nota da disciplina " + pos + " ?");
 
-					disciplina.setDisciplina(nomeDisc);
-					disciplina.setNota(Double.valueOf(notaDisc));
+					disciplina.setDisciplina(nomeDisc); // atribuindo o nome
+					disciplina.setNota(Double.valueOf(notaDisc)); // e a nota ao objeto
 
 					aluno.getDisciplinas().add(disciplina);
 
 				}
 
-				// Caso o usuário necessite remover alguma disciplina da lista da classe Aluno
+				// Caso o usuário necessite remover alguma disciplina da lista, dentro da classe
+				// Aluno,
 				// "disciplinas"
 				int remover = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina?");
 
-				if (remover == 0) {
+				if (remover == 0) { //
 
 					int repetirPergunta = 0;
 					int posicao = 1;
@@ -84,7 +82,6 @@ public class Principal {
 						JOptionPane.showMessageDialog(null, "Disciplina " + index + " removida com sucesso ");
 						repetirPergunta = JOptionPane.showConfirmDialog(null, "Continuar a remover?");
 						posicao++;
-
 					}
 
 				} // fim remover
@@ -125,7 +122,7 @@ public class Principal {
 			} else {
 				for (Aluno aluno : maps.get(StatusAluno.APROVADO)) {
 
-					System.out.println(aluno.getNome());
+					System.out.println(aluno.getNome() + " " + aluno.getDisciplinas());
 
 				}
 			}

@@ -14,6 +14,7 @@ public class Aluno extends Pessoa {
 	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 	private String aprovado;
 
+	
 	public String getAprovado() {
 
 		if (this.getMedia() >= 50) {
