@@ -1,33 +1,31 @@
 package classes;
 
-public class Diretor extends Pessoa {
+import interfaces.PermitirAcesso;
 
-	private String registroEducacao;
-	private int tempoDirecao;
-	private String titulacao;
+public class Diretor extends Pessoa implements PermitirAcesso {
 
-	public String getRegistroEducacao() {
-		return registroEducacao;
+	private String login;
+	private String senha;
+	
+	
+	public Diretor(String login, String senha) {
+		
+		this.login = login;
+		this.senha = senha;
 	}
-
-	public void setRegistroEducacao(String registroEducacao) {
-		this.registroEducacao = registroEducacao;
+	
+	
+	public Diretor() {
+		// TODO Auto-generated constructor stub
 	}
-
-	public int getTempoDirecao() {
-		return tempoDirecao;
+	
+	
+	
+	
+	@Override
+	public boolean autenticar() {
+		// TODO Auto-generated method stub
+		return login.equals("admin") && senha.equals("admin");
 	}
-
-	public void setTempoDirecao(int tempoDirecao) {
-		this.tempoDirecao = tempoDirecao;
-	}
-
-	public String getTitulacao() {
-		return titulacao;
-	}
-
-	public void setTitulacao(String titulacao) {
-		this.titulacao = titulacao;
-	}
-
+	
 }

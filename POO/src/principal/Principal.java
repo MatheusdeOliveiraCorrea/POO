@@ -3,12 +3,13 @@ package principal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 import javax.swing.JOptionPane;
 
 import classes.AcessKlasse;
 import classes.Aluno;
+import classes.Diretor;
 import classes.Disciplina;
-import classes.Secretario;
 import constantes.StatusAluno;
 
 public class Principal {
@@ -18,7 +19,7 @@ public class Principal {
 		String login = JOptionPane.showInputDialog("Informe o login: ");
 		String senha = JOptionPane.showInputDialog("Informe a senha:");
 
-		if (new AcessKlasse(new Secretario(login, senha)).autenticar()) { // VALIDAÇÃO SENHA
+		if (new AcessKlasse(new Diretor(login, senha)).autenticar()) { // VALIDAÇÃO SENHA
 
 			List<Aluno> alunos = new ArrayList<Aluno>(); // Lista de alunos
 
