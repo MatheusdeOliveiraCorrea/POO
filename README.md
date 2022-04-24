@@ -4,6 +4,11 @@ Esse repositório tem o intuito de salvar os códigos que eu uso para treinar co
 o Java, polimorfismo, lógica de programação, interfaces, tratamento de erros e excessões e estrutura de dados
 
 
+
+![Screenshot_18](https://user-images.githubusercontent.com/93480352/164912577-ce12eae8-ad91-44d9-bf51-126d9cade475.png)
+
+
+
 -->O aplicativo mostra quais alunos passaram, quais tão de recuperação e quais reprovaram. 
 
 
@@ -22,5 +27,9 @@ Passos:
 5- Login: admin
 6- Senha: admin
 
+
+
+
+Código escrito com auxílio de professores
 
 
