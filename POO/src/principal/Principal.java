@@ -15,6 +15,7 @@ import constantes.StatusAluno;
 public class Principal {
 
 	public static void main(String[] args) {
+		try {
 
 		String login = JOptionPane.showInputDialog("Informe o login: ");
 		String senha = JOptionPane.showInputDialog("Informe a senha:");
@@ -169,6 +170,11 @@ public class Principal {
 		} else {
 			JOptionPane.showMessageDialog(null, "SENHA INVÁLIDA, TENTE NOVAMENTE");
 		}
+	}catch (Exception e) {
+		e.printStackTrace();
+		JOptionPane.showMessageDialog(null, "Erro no processamento de notas");
 	}
-
+		
+		
+	}
 }
