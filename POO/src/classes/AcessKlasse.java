@@ -4,8 +4,14 @@ import interfaces.PermitirAcesso;
 
 public class AcessKlasse {
 
-	
 	private PermitirAcesso acesso;
+	
+	//construtor
+	public AcessKlasse(PermitirAcesso acesso) {
+		
+		this.acesso = acesso;
+	}
+	
 	
 	public boolean autenticar() {
 		
@@ -14,8 +20,5 @@ public class AcessKlasse {
 	}
 	
 	
-	public AcessKlasse(PermitirAcesso acesso) {
-		
-		this.acesso = acesso;
-	}
+
 }

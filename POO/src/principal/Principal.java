@@ -54,7 +54,7 @@ public class Principal {
 				 * dois JPanels para cada pergunta. Em seguida atribui-se ao objeto "disciplina"
 				 * e o ADCIONA a LISTA <Disciplina> dentro de Aluno...
 				 */
-				for (int pos = 1; pos <= 1; pos++) {
+				for (int pos = 1; pos <= 1; pos++) { // esse contador controla a quantidade de disciplinas
 
 					Disciplina disciplina = new Disciplina();
 
@@ -62,7 +62,7 @@ public class Principal {
 					String notaDisc = JOptionPane.showInputDialog("Qual nota da disciplina " + pos + " ?");
 
 					disciplina.setDisciplina(nomeDisc); // atribuindo o nome
-					disciplina.setNota(Double.valueOf(notaDisc)); // e a nota ao objeto
+					//disciplina.setNota(Double.valueOf(notaDisc)); // e a nota ao objeto
 
 					aluno.getDisciplinas().add(disciplina);
 
@@ -73,7 +73,7 @@ public class Principal {
 				// "disciplinas"
 				int remover = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina?");
 
-				if (remover == 0) { //
+				if (remover == 0) { // Caso sim 
 
 					int repetirPergunta = 0;
 					int posicao = 1;
