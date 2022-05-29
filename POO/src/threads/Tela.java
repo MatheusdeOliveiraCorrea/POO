@@ -20,8 +20,7 @@ public class Tela extends JDialog {
 
 	//Threads
 	private Thread thread1 = new Thread(); 
-	
-	
+	private Thread thread2 = new Thread(); 
 	
 	
 	//painel 
@@ -74,14 +73,38 @@ public class Tela extends JDialog {
 	};
 	
 	Runnable interfaceTempo2 = new Runnable() {
+		int i = 1;
 		
 		@Override
 		public void run() {
-						
+			
+			while(true) {
+			/*	
+				textFieldTempo2.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm.ss")
+						.format(
+								Calendar.getInstance().getTime() 
+								)
+						);
+				
+				*/
+				
+				
+				textFieldTempo2.setText("Numero atual: " + (i*1000));
+				
+				i++;
+				
+		  //Thread sleep pra evitar mt uso do processador 
+				
+				try {
+					Thread.sleep(0);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			
+			
 		}
 	};
-	
-	
 	
 	
 	public Tela() {
@@ -147,7 +170,7 @@ public class Tela extends JDialog {
 		
 		//Executa o click do botão
 		
-		botaoStart.addActionListener(new ActionListener() {
+		botaoStart.addActionListener(new ActionListener() {  //Start
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -156,22 +179,31 @@ public class Tela extends JDialog {
 				thread1.start();
 				
 				
+				thread2 = new Thread(interfaceTempo2);
+				thread2.start();
+				
+				botaoStart.setEnabled(false);
+				botaoStop.setEnabled(true);
+				
 			}
 		});
 		
-		botaoStop.addActionListener(new ActionListener() {
+		botaoStop.addActionListener(new ActionListener() {  //Stop 
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
 				thread1.stop();
+				thread2.stop();
+				
+				botaoStart.setEnabled(true);
+				botaoStop.setEnabled(false);
 				
 			}
 		});
 		
 		
-		
-		
+		botaoStop.setEnabled(false);
 		
 		
 		add(painel, BorderLayout.CENTER);
