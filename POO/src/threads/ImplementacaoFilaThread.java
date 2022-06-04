@@ -10,10 +10,7 @@ public class ImplementacaoFilaThread extends Thread {
 	
 	
 	
-
-	
-	
-	
+	//adciona a pilha "pilha_fila" um objeto com nome e email "ObjetoFilaThread" 
 	public static void add(ObjetoFilaThread objeto) {
 		
 		pilha_fila.add(objeto);
@@ -24,10 +21,15 @@ public class ImplementacaoFilaThread extends Thread {
 	
 	@Override
 	public void run() {
-
-		Iterator interacao = pilha_fila.iterator();
 		
-		synchronized(interacao) {
+		System.out.println("Fila rodando");
+		
+		while(true) {
+		
+		synchronized(pilha_fila) {
+			
+			Iterator interacao = pilha_fila.iterator();
+			
 			while(interacao.hasNext()) {  //enquanto houver dados será processado
 				
 				ObjetoFilaThread processar = (ObjetoFilaThread) interacao.next(); 
@@ -37,17 +39,15 @@ public class ImplementacaoFilaThread extends Thread {
 				/*Gerar PDF's e mandar por email*/ 
 				/*gerar um envio em massa de emails*/ 
 				
+				System.out.println("-----------------");
 				System.out.println(processar.getNome());
 				System.out.println(processar.getEmail());
-				
-				
-				
+
 				interacao.remove();
-				
-				
-				//tempo discarga de memória 
+
+				//tempo descarga de memória 
 				try {
-					Thread.sleep(100);
+					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -62,13 +62,17 @@ public class ImplementacaoFilaThread extends Thread {
 		
 		//Processou toda a lista, dá um tempo para limpeza de memória 
 		try {
-			Thread.sleep(500);
+			Thread.sleep(100);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+	}//fim do while true
+		
+		
 	}//fim método run 
+	
 	
 	
 }
